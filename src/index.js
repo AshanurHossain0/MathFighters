@@ -1,12 +1,11 @@
 require("dotenv").config();
 const express=require("express");
 const app=express();
+const route=require("./routes/route")
 
 app.use(express.json());
 
-app.get("/", (req, res) => {
-    res.status(200).send({ msg: "running..." })
-})
+app.use("/",route)
 
 app.listen(process.env.PORT,(err)=>{
     if(err) return console.log(err.message);
